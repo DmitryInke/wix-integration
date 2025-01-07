@@ -1,0 +1,27 @@
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum ProductType {
+    physical
+}
+
+model Product {
+    id              String      @id @default(uuid()) // Product ID from Wix
+    inventoryItemId String // Inventory item ID from Wix
+    title           String // Product name
+    productType     ProductType // physical
+    description     String? // Product description
+    sku             String? // SKU
+    price           Float // Price of the product
+    inventory       String // Inventory quantity or status (if trackInventory is false)
+    productOptions  Json? // Product options (stored as JSON)
+    imageUrl        String? // URL of the product's main thumbnail
+    createdDate     DateTime    @default(now()) // Automatically set when the record is created
+    lastUpdated     DateTime    @updatedAt // Automatically updated whenever the record is updated
+}
