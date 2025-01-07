@@ -43,7 +43,7 @@ This project is a full-stack application that integrates with the Wix API to man
 ## How to Run the Project
 
 ### Prerequisites
-- Docker and Docker Compose installed
+- Docker installed
 - Node.js and npm installed
 - Nest.js installed
 
@@ -63,7 +63,11 @@ This project is a full-stack application that integrates with the Wix API to man
    ```bash
    docker-compose up --build
    ```
-4. Run the backend
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+5. Run the backend
    ```bash
    npm run start:dev
    ```
